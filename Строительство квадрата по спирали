@@ -1,0 +1,33 @@
+n= int(input("Введите натуральное число:"))
+pravGr=n-1
+levGr=0
+nigGr=n-1
+verxGr=0
+zn=1
+mass={}
+st=""
+if n==1:
+  mass [0,0]=1
+else:
+  for t in range (n-1):
+    for vprav in range (levGr,pravGr+1):
+      mass [verxGr,vprav] = zn
+      zn=zn+1
+    for vniz in range (verxGr+1,nigGr+1):
+      mass [vniz,pravGr] = zn
+      zn=zn+1
+    for vlevo in range (pravGr-1,levGr-1,-1):
+      mass [nigGr,vlevo] = zn
+      zn=zn+1
+    for vverx in range (nigGr-1,verxGr,-1):
+      mass [vverx,levGr] = zn
+      zn=zn+1
+    pravGr=pravGr-1
+    nigGr=nigGr-1
+    levGr=levGr+1
+    verxGr=verxGr+1
+for i in range(n):
+  st=""
+  for j in range (n):
+    st=st + str(mass[i,j])+" "
+  print(st)
